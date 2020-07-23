@@ -1,0 +1,32 @@
+        int diff1=input2-input1;
+		int diff2=input3-input2;
+		int [] array=new int[input4];
+		array[0]=input1;array[1]=input2;array[2]=input3;
+		for(int i=3;i<=input4-1;i++)
+		{
+			if(i%2!=0){array[i]=array[i-1]+diff1;}
+			else{array[i]=array[i-1]+diff2;}
+		}
+		return array[input4-1];
+	}
+}
+      (or)
+	  
+        int [] arr=new int[input4];
+		arr[0]=input1;arr[1]=input2;arr[2]=input3;
+		int j=3;
+		for(int i=0;i<input4-3;i++)
+		{
+			int diff=arr[i+1]-arr[i]; 
+			//a[i]=a,a[i+1]=b,a[i+2]=c
+            arr[j]=arr[i+2]+diff;
+			j++;
+			//(b-a)+c generates the new element of next index starts from 3
+		}
+		return arr[input4-1];
+	}
+}
+Note: The above 2 logics satisfies the all the test cases
+
+
+https://tests.mettl.com/test-window/d2272e10

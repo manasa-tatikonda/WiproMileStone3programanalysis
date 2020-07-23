@@ -1,0 +1,31 @@
+		int i=0,j;
+		while(i<=input1.length()-1)
+		{
+           int digit=(int)input1.charAt(i)-'0';
+		   int evenorodd=(digit%2==0)?1:0;
+		   //1 ->odd sum , 0 ->even sum
+           j=i+1;
+		   int sum=digit;
+		   if(j==input1.length())
+		   { 
+               output+=String.valueOf(sum);
+			   break;
+		   }
+		   else
+		   {
+			   while(true)
+			   {
+				   sum+=(int)input1.charAt(j)-'0';
+				   j++;
+				   if(sum%2!=evenorodd && j<=input1.length()-1)
+				   {}
+				   else
+				   {i=j;output+=String.valueOf(sum);break;}
+			   }
+		   }
+		}
+		return Integer.parseInt(output);
+	}
+}
+
+https://tests.mettl.com/test-window/7db6c8a4

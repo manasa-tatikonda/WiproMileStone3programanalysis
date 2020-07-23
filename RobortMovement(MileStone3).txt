@@ -1,0 +1,60 @@
+        String [] currently=input3.split("-");
+		String [] rules=input4.split(" ");
+		int row=Integer.parseInt(currently[0]);
+		int col=Integer.parseInt(currently[1]);
+		String dir=currently[2];
+		int flag=0;
+		for(String r:rules)
+		{
+			if(r.equals("R"))
+			{
+                if(dir.equals("E")){dir="S";}
+				else if(dir.equals("W")){dir="N";}
+				else if(dir.equals("N")){dir="E";}
+				else if(dir.equals("S")){dir="W";}
+			}
+			else if(r.equals("L"))
+			{
+                if(dir.equals("E")){dir="N";}
+				else if(dir.equals("W")){dir="S";}
+				else if(dir.equals("N")){dir="W";}
+				else if(dir.equals("S")){dir="E";}
+			}
+			else if(r.equals("M"))
+			{
+                if(dir.equals("E"))
+				{
+					if(row+1>input1)
+					{flag=1;break;}
+					else
+					{row++;}
+				}
+				else if(dir.equals("W"))
+				{
+					if(row-1<0)
+					{flag=1;break;}
+					else
+					{row--;}
+				}
+				else if(dir.equals("N"))
+				{
+					if(col+1>input2)
+					{flag=1;break;}
+					else
+					{col++;}
+				}
+				else if(dir.equals("S"))
+				{
+					if(col-1<0)
+					{flag=1;break;}
+					else{col--;}
+				}
+			}
+		}
+		String output=row+"-"+col+"-"+dir;
+		if(flag==1)
+		{return output+"-ER";}
+		else
+		{return output;}
+
+https://tests.mettl.com/test-window/aedcc3a6
